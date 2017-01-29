@@ -25,6 +25,11 @@ import proto "github.com/golang/protobuf/proto"
 import fmt "fmt"
 import math "math"
 
+import (
+	context "golang.org/x/net/context"
+	grpc "google.golang.org/grpc"
+)
+
 // Reference imports to suppress errors if they are not otherwise used.
 var _ = proto.Marshal
 var _ = fmt.Errorf
@@ -257,6 +262,441 @@ func init() {
 	proto.RegisterType((*NewAccountDetails)(nil), "accounts.NewAccountDetails")
 	proto.RegisterType((*SignInRequest)(nil), "accounts.SignInRequest")
 	proto.RegisterType((*Username)(nil), "accounts.Username")
+}
+
+// Reference imports to suppress errors if they are not otherwise used.
+var _ context.Context
+var _ grpc.ClientConn
+
+// This is a compile-time assertion to ensure that this generated file
+// is compatible with the grpc package it is being compiled against.
+const _ = grpc.SupportPackageIsVersion4
+
+// Client API for AccountsService service
+
+type AccountsServiceClient interface {
+	SignUp(ctx context.Context, in *SignUpRequest, opts ...grpc.CallOption) (*GenericResponse, error)
+	CheckAvailability(ctx context.Context, in *Username, opts ...grpc.CallOption) (*AvailabilityResponse, error)
+	CreateAccount(ctx context.Context, in *NewAccountDetails, opts ...grpc.CallOption) (*GenericResponse, error)
+	SignIn(ctx context.Context, in *SignInRequest, opts ...grpc.CallOption) (*GenericResponse, error)
+	UpdateAccount(ctx context.Context, in *Settings, opts ...grpc.CallOption) (*GenericResponse, error)
+	UpdateUserName(ctx context.Context, in *Username, opts ...grpc.CallOption) (*GenericResponse, error)
+	ChangeEmailAddress(ctx context.Context, in *GenericString, opts ...grpc.CallOption) (*GenericResponse, error)
+	ConfirmEmailChange(ctx context.Context, in *GenericString, opts ...grpc.CallOption) (*GenericResponse, error)
+	ChangePhone(ctx context.Context, in *GenericString, opts ...grpc.CallOption) (*GenericResponse, error)
+	ConfirmPhoneChange(ctx context.Context, in *GenericString, opts ...grpc.CallOption) (*GenericResponse, error)
+	SignOut(ctx context.Context, in *NilParam, opts ...grpc.CallOption) (*GenericResponse, error)
+	DeleteAccount(ctx context.Context, in *NilParam, opts ...grpc.CallOption) (*GenericResponse, error)
+}
+
+type accountsServiceClient struct {
+	cc *grpc.ClientConn
+}
+
+func NewAccountsServiceClient(cc *grpc.ClientConn) AccountsServiceClient {
+	return &accountsServiceClient{cc}
+}
+
+func (c *accountsServiceClient) SignUp(ctx context.Context, in *SignUpRequest, opts ...grpc.CallOption) (*GenericResponse, error) {
+	out := new(GenericResponse)
+	err := grpc.Invoke(ctx, "/accounts.AccountsService/SignUp", in, out, c.cc, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *accountsServiceClient) CheckAvailability(ctx context.Context, in *Username, opts ...grpc.CallOption) (*AvailabilityResponse, error) {
+	out := new(AvailabilityResponse)
+	err := grpc.Invoke(ctx, "/accounts.AccountsService/CheckAvailability", in, out, c.cc, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *accountsServiceClient) CreateAccount(ctx context.Context, in *NewAccountDetails, opts ...grpc.CallOption) (*GenericResponse, error) {
+	out := new(GenericResponse)
+	err := grpc.Invoke(ctx, "/accounts.AccountsService/CreateAccount", in, out, c.cc, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *accountsServiceClient) SignIn(ctx context.Context, in *SignInRequest, opts ...grpc.CallOption) (*GenericResponse, error) {
+	out := new(GenericResponse)
+	err := grpc.Invoke(ctx, "/accounts.AccountsService/SignIn", in, out, c.cc, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *accountsServiceClient) UpdateAccount(ctx context.Context, in *Settings, opts ...grpc.CallOption) (*GenericResponse, error) {
+	out := new(GenericResponse)
+	err := grpc.Invoke(ctx, "/accounts.AccountsService/UpdateAccount", in, out, c.cc, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *accountsServiceClient) UpdateUserName(ctx context.Context, in *Username, opts ...grpc.CallOption) (*GenericResponse, error) {
+	out := new(GenericResponse)
+	err := grpc.Invoke(ctx, "/accounts.AccountsService/UpdateUserName", in, out, c.cc, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *accountsServiceClient) ChangeEmailAddress(ctx context.Context, in *GenericString, opts ...grpc.CallOption) (*GenericResponse, error) {
+	out := new(GenericResponse)
+	err := grpc.Invoke(ctx, "/accounts.AccountsService/ChangeEmailAddress", in, out, c.cc, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *accountsServiceClient) ConfirmEmailChange(ctx context.Context, in *GenericString, opts ...grpc.CallOption) (*GenericResponse, error) {
+	out := new(GenericResponse)
+	err := grpc.Invoke(ctx, "/accounts.AccountsService/ConfirmEmailChange", in, out, c.cc, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *accountsServiceClient) ChangePhone(ctx context.Context, in *GenericString, opts ...grpc.CallOption) (*GenericResponse, error) {
+	out := new(GenericResponse)
+	err := grpc.Invoke(ctx, "/accounts.AccountsService/ChangePhone", in, out, c.cc, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *accountsServiceClient) ConfirmPhoneChange(ctx context.Context, in *GenericString, opts ...grpc.CallOption) (*GenericResponse, error) {
+	out := new(GenericResponse)
+	err := grpc.Invoke(ctx, "/accounts.AccountsService/ConfirmPhoneChange", in, out, c.cc, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *accountsServiceClient) SignOut(ctx context.Context, in *NilParam, opts ...grpc.CallOption) (*GenericResponse, error) {
+	out := new(GenericResponse)
+	err := grpc.Invoke(ctx, "/accounts.AccountsService/SignOut", in, out, c.cc, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *accountsServiceClient) DeleteAccount(ctx context.Context, in *NilParam, opts ...grpc.CallOption) (*GenericResponse, error) {
+	out := new(GenericResponse)
+	err := grpc.Invoke(ctx, "/accounts.AccountsService/DeleteAccount", in, out, c.cc, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+// Server API for AccountsService service
+
+type AccountsServiceServer interface {
+	SignUp(context.Context, *SignUpRequest) (*GenericResponse, error)
+	CheckAvailability(context.Context, *Username) (*AvailabilityResponse, error)
+	CreateAccount(context.Context, *NewAccountDetails) (*GenericResponse, error)
+	SignIn(context.Context, *SignInRequest) (*GenericResponse, error)
+	UpdateAccount(context.Context, *Settings) (*GenericResponse, error)
+	UpdateUserName(context.Context, *Username) (*GenericResponse, error)
+	ChangeEmailAddress(context.Context, *GenericString) (*GenericResponse, error)
+	ConfirmEmailChange(context.Context, *GenericString) (*GenericResponse, error)
+	ChangePhone(context.Context, *GenericString) (*GenericResponse, error)
+	ConfirmPhoneChange(context.Context, *GenericString) (*GenericResponse, error)
+	SignOut(context.Context, *NilParam) (*GenericResponse, error)
+	DeleteAccount(context.Context, *NilParam) (*GenericResponse, error)
+}
+
+func RegisterAccountsServiceServer(s *grpc.Server, srv AccountsServiceServer) {
+	s.RegisterService(&_AccountsService_serviceDesc, srv)
+}
+
+func _AccountsService_SignUp_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SignUpRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(AccountsServiceServer).SignUp(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/accounts.AccountsService/SignUp",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(AccountsServiceServer).SignUp(ctx, req.(*SignUpRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _AccountsService_CheckAvailability_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(Username)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(AccountsServiceServer).CheckAvailability(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/accounts.AccountsService/CheckAvailability",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(AccountsServiceServer).CheckAvailability(ctx, req.(*Username))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _AccountsService_CreateAccount_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(NewAccountDetails)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(AccountsServiceServer).CreateAccount(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/accounts.AccountsService/CreateAccount",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(AccountsServiceServer).CreateAccount(ctx, req.(*NewAccountDetails))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _AccountsService_SignIn_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SignInRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(AccountsServiceServer).SignIn(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/accounts.AccountsService/SignIn",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(AccountsServiceServer).SignIn(ctx, req.(*SignInRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _AccountsService_UpdateAccount_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(Settings)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(AccountsServiceServer).UpdateAccount(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/accounts.AccountsService/UpdateAccount",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(AccountsServiceServer).UpdateAccount(ctx, req.(*Settings))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _AccountsService_UpdateUserName_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(Username)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(AccountsServiceServer).UpdateUserName(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/accounts.AccountsService/UpdateUserName",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(AccountsServiceServer).UpdateUserName(ctx, req.(*Username))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _AccountsService_ChangeEmailAddress_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GenericString)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(AccountsServiceServer).ChangeEmailAddress(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/accounts.AccountsService/ChangeEmailAddress",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(AccountsServiceServer).ChangeEmailAddress(ctx, req.(*GenericString))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _AccountsService_ConfirmEmailChange_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GenericString)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(AccountsServiceServer).ConfirmEmailChange(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/accounts.AccountsService/ConfirmEmailChange",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(AccountsServiceServer).ConfirmEmailChange(ctx, req.(*GenericString))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _AccountsService_ChangePhone_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GenericString)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(AccountsServiceServer).ChangePhone(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/accounts.AccountsService/ChangePhone",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(AccountsServiceServer).ChangePhone(ctx, req.(*GenericString))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _AccountsService_ConfirmPhoneChange_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GenericString)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(AccountsServiceServer).ConfirmPhoneChange(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/accounts.AccountsService/ConfirmPhoneChange",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(AccountsServiceServer).ConfirmPhoneChange(ctx, req.(*GenericString))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _AccountsService_SignOut_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(NilParam)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(AccountsServiceServer).SignOut(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/accounts.AccountsService/SignOut",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(AccountsServiceServer).SignOut(ctx, req.(*NilParam))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _AccountsService_DeleteAccount_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(NilParam)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(AccountsServiceServer).DeleteAccount(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/accounts.AccountsService/DeleteAccount",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(AccountsServiceServer).DeleteAccount(ctx, req.(*NilParam))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+var _AccountsService_serviceDesc = grpc.ServiceDesc{
+	ServiceName: "accounts.AccountsService",
+	HandlerType: (*AccountsServiceServer)(nil),
+	Methods: []grpc.MethodDesc{
+		{
+			MethodName: "SignUp",
+			Handler:    _AccountsService_SignUp_Handler,
+		},
+		{
+			MethodName: "CheckAvailability",
+			Handler:    _AccountsService_CheckAvailability_Handler,
+		},
+		{
+			MethodName: "CreateAccount",
+			Handler:    _AccountsService_CreateAccount_Handler,
+		},
+		{
+			MethodName: "SignIn",
+			Handler:    _AccountsService_SignIn_Handler,
+		},
+		{
+			MethodName: "UpdateAccount",
+			Handler:    _AccountsService_UpdateAccount_Handler,
+		},
+		{
+			MethodName: "UpdateUserName",
+			Handler:    _AccountsService_UpdateUserName_Handler,
+		},
+		{
+			MethodName: "ChangeEmailAddress",
+			Handler:    _AccountsService_ChangeEmailAddress_Handler,
+		},
+		{
+			MethodName: "ConfirmEmailChange",
+			Handler:    _AccountsService_ConfirmEmailChange_Handler,
+		},
+		{
+			MethodName: "ChangePhone",
+			Handler:    _AccountsService_ChangePhone_Handler,
+		},
+		{
+			MethodName: "ConfirmPhoneChange",
+			Handler:    _AccountsService_ConfirmPhoneChange_Handler,
+		},
+		{
+			MethodName: "SignOut",
+			Handler:    _AccountsService_SignOut_Handler,
+		},
+		{
+			MethodName: "DeleteAccount",
+			Handler:    _AccountsService_DeleteAccount_Handler,
+		},
+	},
+	Streams:  []grpc.StreamDesc{},
+	Metadata: "accounts.proto",
 }
 
 func init() { proto.RegisterFile("accounts.proto", fileDescriptor0) }
