@@ -2,7 +2,7 @@ syntax = "proto3";
 
 package accounts;
 
-service AccountsService {
+service Accounts {
 	rpc SignUp(SignUpRequest) returns (GenericResponse);
 
 	rpc CheckAvailability(Username) returns (AvailabilityResponse);

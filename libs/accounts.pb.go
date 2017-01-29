@@ -272,9 +272,9 @@ var _ grpc.ClientConn
 // is compatible with the grpc package it is being compiled against.
 const _ = grpc.SupportPackageIsVersion4
 
-// Client API for AccountsService service
+// Client API for Accounts service
 
-type AccountsServiceClient interface {
+type AccountsClient interface {
 	SignUp(ctx context.Context, in *SignUpRequest, opts ...grpc.CallOption) (*GenericResponse, error)
 	CheckAvailability(ctx context.Context, in *Username, opts ...grpc.CallOption) (*AvailabilityResponse, error)
 	CreateAccount(ctx context.Context, in *NewAccountDetails, opts ...grpc.CallOption) (*GenericResponse, error)
@@ -289,125 +289,125 @@ type AccountsServiceClient interface {
 	DeleteAccount(ctx context.Context, in *NilParam, opts ...grpc.CallOption) (*GenericResponse, error)
 }
 
-type accountsServiceClient struct {
+type accountsClient struct {
 	cc *grpc.ClientConn
 }
 
-func NewAccountsServiceClient(cc *grpc.ClientConn) AccountsServiceClient {
-	return &accountsServiceClient{cc}
+func NewAccountsClient(cc *grpc.ClientConn) AccountsClient {
+	return &accountsClient{cc}
 }
 
-func (c *accountsServiceClient) SignUp(ctx context.Context, in *SignUpRequest, opts ...grpc.CallOption) (*GenericResponse, error) {
+func (c *accountsClient) SignUp(ctx context.Context, in *SignUpRequest, opts ...grpc.CallOption) (*GenericResponse, error) {
 	out := new(GenericResponse)
-	err := grpc.Invoke(ctx, "/accounts.AccountsService/SignUp", in, out, c.cc, opts...)
+	err := grpc.Invoke(ctx, "/accounts.Accounts/SignUp", in, out, c.cc, opts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *accountsServiceClient) CheckAvailability(ctx context.Context, in *Username, opts ...grpc.CallOption) (*AvailabilityResponse, error) {
+func (c *accountsClient) CheckAvailability(ctx context.Context, in *Username, opts ...grpc.CallOption) (*AvailabilityResponse, error) {
 	out := new(AvailabilityResponse)
-	err := grpc.Invoke(ctx, "/accounts.AccountsService/CheckAvailability", in, out, c.cc, opts...)
+	err := grpc.Invoke(ctx, "/accounts.Accounts/CheckAvailability", in, out, c.cc, opts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *accountsServiceClient) CreateAccount(ctx context.Context, in *NewAccountDetails, opts ...grpc.CallOption) (*GenericResponse, error) {
+func (c *accountsClient) CreateAccount(ctx context.Context, in *NewAccountDetails, opts ...grpc.CallOption) (*GenericResponse, error) {
 	out := new(GenericResponse)
-	err := grpc.Invoke(ctx, "/accounts.AccountsService/CreateAccount", in, out, c.cc, opts...)
+	err := grpc.Invoke(ctx, "/accounts.Accounts/CreateAccount", in, out, c.cc, opts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *accountsServiceClient) SignIn(ctx context.Context, in *SignInRequest, opts ...grpc.CallOption) (*GenericResponse, error) {
+func (c *accountsClient) SignIn(ctx context.Context, in *SignInRequest, opts ...grpc.CallOption) (*GenericResponse, error) {
 	out := new(GenericResponse)
-	err := grpc.Invoke(ctx, "/accounts.AccountsService/SignIn", in, out, c.cc, opts...)
+	err := grpc.Invoke(ctx, "/accounts.Accounts/SignIn", in, out, c.cc, opts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *accountsServiceClient) UpdateAccount(ctx context.Context, in *Settings, opts ...grpc.CallOption) (*GenericResponse, error) {
+func (c *accountsClient) UpdateAccount(ctx context.Context, in *Settings, opts ...grpc.CallOption) (*GenericResponse, error) {
 	out := new(GenericResponse)
-	err := grpc.Invoke(ctx, "/accounts.AccountsService/UpdateAccount", in, out, c.cc, opts...)
+	err := grpc.Invoke(ctx, "/accounts.Accounts/UpdateAccount", in, out, c.cc, opts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *accountsServiceClient) UpdateUserName(ctx context.Context, in *Username, opts ...grpc.CallOption) (*GenericResponse, error) {
+func (c *accountsClient) UpdateUserName(ctx context.Context, in *Username, opts ...grpc.CallOption) (*GenericResponse, error) {
 	out := new(GenericResponse)
-	err := grpc.Invoke(ctx, "/accounts.AccountsService/UpdateUserName", in, out, c.cc, opts...)
+	err := grpc.Invoke(ctx, "/accounts.Accounts/UpdateUserName", in, out, c.cc, opts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *accountsServiceClient) ChangeEmailAddress(ctx context.Context, in *GenericString, opts ...grpc.CallOption) (*GenericResponse, error) {
+func (c *accountsClient) ChangeEmailAddress(ctx context.Context, in *GenericString, opts ...grpc.CallOption) (*GenericResponse, error) {
 	out := new(GenericResponse)
-	err := grpc.Invoke(ctx, "/accounts.AccountsService/ChangeEmailAddress", in, out, c.cc, opts...)
+	err := grpc.Invoke(ctx, "/accounts.Accounts/ChangeEmailAddress", in, out, c.cc, opts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *accountsServiceClient) ConfirmEmailChange(ctx context.Context, in *GenericString, opts ...grpc.CallOption) (*GenericResponse, error) {
+func (c *accountsClient) ConfirmEmailChange(ctx context.Context, in *GenericString, opts ...grpc.CallOption) (*GenericResponse, error) {
 	out := new(GenericResponse)
-	err := grpc.Invoke(ctx, "/accounts.AccountsService/ConfirmEmailChange", in, out, c.cc, opts...)
+	err := grpc.Invoke(ctx, "/accounts.Accounts/ConfirmEmailChange", in, out, c.cc, opts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *accountsServiceClient) ChangePhone(ctx context.Context, in *GenericString, opts ...grpc.CallOption) (*GenericResponse, error) {
+func (c *accountsClient) ChangePhone(ctx context.Context, in *GenericString, opts ...grpc.CallOption) (*GenericResponse, error) {
 	out := new(GenericResponse)
-	err := grpc.Invoke(ctx, "/accounts.AccountsService/ChangePhone", in, out, c.cc, opts...)
+	err := grpc.Invoke(ctx, "/accounts.Accounts/ChangePhone", in, out, c.cc, opts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *accountsServiceClient) ConfirmPhoneChange(ctx context.Context, in *GenericString, opts ...grpc.CallOption) (*GenericResponse, error) {
+func (c *accountsClient) ConfirmPhoneChange(ctx context.Context, in *GenericString, opts ...grpc.CallOption) (*GenericResponse, error) {
 	out := new(GenericResponse)
-	err := grpc.Invoke(ctx, "/accounts.AccountsService/ConfirmPhoneChange", in, out, c.cc, opts...)
+	err := grpc.Invoke(ctx, "/accounts.Accounts/ConfirmPhoneChange", in, out, c.cc, opts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *accountsServiceClient) SignOut(ctx context.Context, in *NilParam, opts ...grpc.CallOption) (*GenericResponse, error) {
+func (c *accountsClient) SignOut(ctx context.Context, in *NilParam, opts ...grpc.CallOption) (*GenericResponse, error) {
 	out := new(GenericResponse)
-	err := grpc.Invoke(ctx, "/accounts.AccountsService/SignOut", in, out, c.cc, opts...)
+	err := grpc.Invoke(ctx, "/accounts.Accounts/SignOut", in, out, c.cc, opts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *accountsServiceClient) DeleteAccount(ctx context.Context, in *NilParam, opts ...grpc.CallOption) (*GenericResponse, error) {
+func (c *accountsClient) DeleteAccount(ctx context.Context, in *NilParam, opts ...grpc.CallOption) (*GenericResponse, error) {
 	out := new(GenericResponse)
-	err := grpc.Invoke(ctx, "/accounts.AccountsService/DeleteAccount", in, out, c.cc, opts...)
+	err := grpc.Invoke(ctx, "/accounts.Accounts/DeleteAccount", in, out, c.cc, opts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-// Server API for AccountsService service
+// Server API for Accounts service
 
-type AccountsServiceServer interface {
+type AccountsServer interface {
 	SignUp(context.Context, *SignUpRequest) (*GenericResponse, error)
 	CheckAvailability(context.Context, *Username) (*AvailabilityResponse, error)
 	CreateAccount(context.Context, *NewAccountDetails) (*GenericResponse, error)
@@ -422,277 +422,277 @@ type AccountsServiceServer interface {
 	DeleteAccount(context.Context, *NilParam) (*GenericResponse, error)
 }
 
-func RegisterAccountsServiceServer(s *grpc.Server, srv AccountsServiceServer) {
-	s.RegisterService(&_AccountsService_serviceDesc, srv)
+func RegisterAccountsServer(s *grpc.Server, srv AccountsServer) {
+	s.RegisterService(&_Accounts_serviceDesc, srv)
 }
 
-func _AccountsService_SignUp_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _Accounts_SignUp_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(SignUpRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(AccountsServiceServer).SignUp(ctx, in)
+		return srv.(AccountsServer).SignUp(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/accounts.AccountsService/SignUp",
+		FullMethod: "/accounts.Accounts/SignUp",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(AccountsServiceServer).SignUp(ctx, req.(*SignUpRequest))
+		return srv.(AccountsServer).SignUp(ctx, req.(*SignUpRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _AccountsService_CheckAvailability_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _Accounts_CheckAvailability_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(Username)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(AccountsServiceServer).CheckAvailability(ctx, in)
+		return srv.(AccountsServer).CheckAvailability(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/accounts.AccountsService/CheckAvailability",
+		FullMethod: "/accounts.Accounts/CheckAvailability",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(AccountsServiceServer).CheckAvailability(ctx, req.(*Username))
+		return srv.(AccountsServer).CheckAvailability(ctx, req.(*Username))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _AccountsService_CreateAccount_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _Accounts_CreateAccount_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(NewAccountDetails)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(AccountsServiceServer).CreateAccount(ctx, in)
+		return srv.(AccountsServer).CreateAccount(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/accounts.AccountsService/CreateAccount",
+		FullMethod: "/accounts.Accounts/CreateAccount",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(AccountsServiceServer).CreateAccount(ctx, req.(*NewAccountDetails))
+		return srv.(AccountsServer).CreateAccount(ctx, req.(*NewAccountDetails))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _AccountsService_SignIn_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _Accounts_SignIn_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(SignInRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(AccountsServiceServer).SignIn(ctx, in)
+		return srv.(AccountsServer).SignIn(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/accounts.AccountsService/SignIn",
+		FullMethod: "/accounts.Accounts/SignIn",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(AccountsServiceServer).SignIn(ctx, req.(*SignInRequest))
+		return srv.(AccountsServer).SignIn(ctx, req.(*SignInRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _AccountsService_UpdateAccount_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _Accounts_UpdateAccount_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(Settings)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(AccountsServiceServer).UpdateAccount(ctx, in)
+		return srv.(AccountsServer).UpdateAccount(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/accounts.AccountsService/UpdateAccount",
+		FullMethod: "/accounts.Accounts/UpdateAccount",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(AccountsServiceServer).UpdateAccount(ctx, req.(*Settings))
+		return srv.(AccountsServer).UpdateAccount(ctx, req.(*Settings))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _AccountsService_UpdateUserName_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _Accounts_UpdateUserName_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(Username)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(AccountsServiceServer).UpdateUserName(ctx, in)
+		return srv.(AccountsServer).UpdateUserName(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/accounts.AccountsService/UpdateUserName",
+		FullMethod: "/accounts.Accounts/UpdateUserName",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(AccountsServiceServer).UpdateUserName(ctx, req.(*Username))
+		return srv.(AccountsServer).UpdateUserName(ctx, req.(*Username))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _AccountsService_ChangeEmailAddress_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _Accounts_ChangeEmailAddress_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(GenericString)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(AccountsServiceServer).ChangeEmailAddress(ctx, in)
+		return srv.(AccountsServer).ChangeEmailAddress(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/accounts.AccountsService/ChangeEmailAddress",
+		FullMethod: "/accounts.Accounts/ChangeEmailAddress",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(AccountsServiceServer).ChangeEmailAddress(ctx, req.(*GenericString))
+		return srv.(AccountsServer).ChangeEmailAddress(ctx, req.(*GenericString))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _AccountsService_ConfirmEmailChange_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _Accounts_ConfirmEmailChange_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(GenericString)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(AccountsServiceServer).ConfirmEmailChange(ctx, in)
+		return srv.(AccountsServer).ConfirmEmailChange(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/accounts.AccountsService/ConfirmEmailChange",
+		FullMethod: "/accounts.Accounts/ConfirmEmailChange",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(AccountsServiceServer).ConfirmEmailChange(ctx, req.(*GenericString))
+		return srv.(AccountsServer).ConfirmEmailChange(ctx, req.(*GenericString))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _AccountsService_ChangePhone_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _Accounts_ChangePhone_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(GenericString)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(AccountsServiceServer).ChangePhone(ctx, in)
+		return srv.(AccountsServer).ChangePhone(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/accounts.AccountsService/ChangePhone",
+		FullMethod: "/accounts.Accounts/ChangePhone",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(AccountsServiceServer).ChangePhone(ctx, req.(*GenericString))
+		return srv.(AccountsServer).ChangePhone(ctx, req.(*GenericString))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _AccountsService_ConfirmPhoneChange_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _Accounts_ConfirmPhoneChange_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(GenericString)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(AccountsServiceServer).ConfirmPhoneChange(ctx, in)
+		return srv.(AccountsServer).ConfirmPhoneChange(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/accounts.AccountsService/ConfirmPhoneChange",
+		FullMethod: "/accounts.Accounts/ConfirmPhoneChange",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(AccountsServiceServer).ConfirmPhoneChange(ctx, req.(*GenericString))
+		return srv.(AccountsServer).ConfirmPhoneChange(ctx, req.(*GenericString))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _AccountsService_SignOut_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _Accounts_SignOut_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(NilParam)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(AccountsServiceServer).SignOut(ctx, in)
+		return srv.(AccountsServer).SignOut(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/accounts.AccountsService/SignOut",
+		FullMethod: "/accounts.Accounts/SignOut",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(AccountsServiceServer).SignOut(ctx, req.(*NilParam))
+		return srv.(AccountsServer).SignOut(ctx, req.(*NilParam))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _AccountsService_DeleteAccount_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _Accounts_DeleteAccount_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(NilParam)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(AccountsServiceServer).DeleteAccount(ctx, in)
+		return srv.(AccountsServer).DeleteAccount(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/accounts.AccountsService/DeleteAccount",
+		FullMethod: "/accounts.Accounts/DeleteAccount",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(AccountsServiceServer).DeleteAccount(ctx, req.(*NilParam))
+		return srv.(AccountsServer).DeleteAccount(ctx, req.(*NilParam))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-var _AccountsService_serviceDesc = grpc.ServiceDesc{
-	ServiceName: "accounts.AccountsService",
-	HandlerType: (*AccountsServiceServer)(nil),
+var _Accounts_serviceDesc = grpc.ServiceDesc{
+	ServiceName: "accounts.Accounts",
+	HandlerType: (*AccountsServer)(nil),
 	Methods: []grpc.MethodDesc{
 		{
 			MethodName: "SignUp",
-			Handler:    _AccountsService_SignUp_Handler,
+			Handler:    _Accounts_SignUp_Handler,
 		},
 		{
 			MethodName: "CheckAvailability",
-			Handler:    _AccountsService_CheckAvailability_Handler,
+			Handler:    _Accounts_CheckAvailability_Handler,
 		},
 		{
 			MethodName: "CreateAccount",
-			Handler:    _AccountsService_CreateAccount_Handler,
+			Handler:    _Accounts_CreateAccount_Handler,
 		},
 		{
 			MethodName: "SignIn",
-			Handler:    _AccountsService_SignIn_Handler,
+			Handler:    _Accounts_SignIn_Handler,
 		},
 		{
 			MethodName: "UpdateAccount",
-			Handler:    _AccountsService_UpdateAccount_Handler,
+			Handler:    _Accounts_UpdateAccount_Handler,
 		},
 		{
 			MethodName: "UpdateUserName",
-			Handler:    _AccountsService_UpdateUserName_Handler,
+			Handler:    _Accounts_UpdateUserName_Handler,
 		},
 		{
 			MethodName: "ChangeEmailAddress",
-			Handler:    _AccountsService_ChangeEmailAddress_Handler,
+			Handler:    _Accounts_ChangeEmailAddress_Handler,
 		},
 		{
 			MethodName: "ConfirmEmailChange",
-			Handler:    _AccountsService_ConfirmEmailChange_Handler,
+			Handler:    _Accounts_ConfirmEmailChange_Handler,
 		},
 		{
 			MethodName: "ChangePhone",
-			Handler:    _AccountsService_ChangePhone_Handler,
+			Handler:    _Accounts_ChangePhone_Handler,
 		},
 		{
 			MethodName: "ConfirmPhoneChange",
-			Handler:    _AccountsService_ConfirmPhoneChange_Handler,
+			Handler:    _Accounts_ConfirmPhoneChange_Handler,
 		},
 		{
 			MethodName: "SignOut",
-			Handler:    _AccountsService_SignOut_Handler,
+			Handler:    _Accounts_SignOut_Handler,
 		},
 		{
 			MethodName: "DeleteAccount",
-			Handler:    _AccountsService_DeleteAccount_Handler,
+			Handler:    _Accounts_DeleteAccount_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},
@@ -702,42 +702,41 @@ var _AccountsService_serviceDesc = grpc.ServiceDesc{
 func init() { proto.RegisterFile("accounts.proto", fileDescriptor0) }
 
 var fileDescriptor0 = []byte{
-	// 583 bytes of a gzipped FileDescriptorProto
-	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x09, 0x6e, 0x88, 0x02, 0xff, 0xa4, 0x55, 0xcf, 0x6e, 0xda, 0x4e,
-	0x10, 0x96, 0x21, 0xf0, 0x23, 0xc3, 0x8f, 0xa4, 0x59, 0x45, 0x0d, 0xa5, 0x55, 0x85, 0x7c, 0x68,
-	0x73, 0xe2, 0x40, 0x7b, 0x88, 0xda, 0xaa, 0x15, 0x82, 0x88, 0x46, 0x95, 0x28, 0x32, 0x22, 0xf7,
-	0xc5, 0x4c, 0x60, 0x15, 0xb3, 0xa6, 0xbb, 0x6b, 0x22, 0x1e, 0xa0, 0x0f, 0x53, 0xf5, 0x11, 0xfa,
-	0x72, 0xb5, 0xbd, 0xfe, 0x0b, 0x14, 0xaa, 0xe6, 0xb6, 0x33, 0xb3, 0xf3, 0xcd, 0x37, 0xf3, 0xcd,
-	0xda, 0x70, 0x42, 0x6d, 0xdb, 0xf5, 0xb8, 0x92, 0xad, 0xa5, 0x70, 0x95, 0x4b, 0x2a, 0xb1, 0x6d,
-	0x02, 0x54, 0x06, 0xcc, 0x19, 0x52, 0x41, 0x17, 0xe6, 0x5b, 0x38, 0xef, 0xac, 0x28, 0x73, 0xe8,
-	0x84, 0x39, 0x4c, 0xad, 0x2d, 0x94, 0x4b, 0x97, 0x4b, 0x24, 0x2f, 0xe0, 0x38, 0xf2, 0x3b, 0x58,
-	0x37, 0x9a, 0xc6, 0x65, 0xc5, 0x4a, 0x1d, 0xe6, 0x6b, 0xa8, 0xf5, 0x91, 0xa3, 0x60, 0xf6, 0x48,
-	0x09, 0xc6, 0x67, 0xe4, 0x29, 0x94, 0xf5, 0x29, 0xbc, 0x7b, 0x6c, 0x45, 0x96, 0x39, 0x86, 0xda,
-	0x88, 0xcd, 0xf8, 0x78, 0x69, 0xe1, 0x37, 0x0f, 0xa5, 0x22, 0x26, 0xfc, 0x7f, 0xbd, 0xf0, 0x61,
-	0x3a, 0xd3, 0xa9, 0x40, 0x29, 0xa3, 0xeb, 0x39, 0x1f, 0x69, 0x42, 0x75, 0x38, 0x77, 0x39, 0x0e,
-	0xbc, 0xc5, 0x04, 0x45, 0xbd, 0x10, 0x5e, 0xc9, 0xba, 0xcc, 0x2f, 0x70, 0x1a, 0xd5, 0x4f, 0x08,
-	0x87, 0x0c, 0xa8, 0xf2, 0x34, 0x64, 0xc9, 0x8a, 0xac, 0x00, 0xac, 0x87, 0xd2, 0x16, 0x6c, 0xa9,
-	0x98, 0xcb, 0x63, 0xb0, 0x8c, 0xcb, 0xfc, 0x6e, 0x40, 0x65, 0x84, 0x4a, 0xf9, 0x7c, 0x25, 0xf9,
-	0x90, 0x9e, 0x7d, 0xa0, 0xe2, 0x65, 0xb5, 0xdd, 0x6c, 0x25, 0x83, 0x8c, 0x23, 0xc9, 0xe1, 0x9a,
-	0x2b, 0xb1, 0xb6, 0x92, 0x8c, 0xc6, 0x7b, 0xbf, 0xdd, 0x6c, 0x88, 0x3c, 0x81, 0xe2, 0x3d, 0xae,
-	0xa3, 0x2e, 0x83, 0x23, 0x39, 0x87, 0xd2, 0x8a, 0x3a, 0x1e, 0x46, 0x4c, 0xb4, 0xf1, 0xae, 0x70,
-	0x65, 0x98, 0x3f, 0x0d, 0x38, 0x1b, 0xe0, 0x43, 0x47, 0x57, 0xeb, 0xa1, 0xf2, 0x47, 0x22, 0x49,
-	0x0b, 0xc8, 0xad, 0xdf, 0xe8, 0x1d, 0xb3, 0x69, 0xc0, 0x36, 0x37, 0xe5, 0x1d, 0x11, 0xd2, 0x80,
-	0xca, 0x58, 0xa2, 0xe0, 0x74, 0x11, 0x97, 0x48, 0xec, 0x20, 0x36, 0xa4, 0x52, 0x3e, 0xb8, 0x62,
-	0x5a, 0x2f, 0xea, 0x58, 0x6c, 0xfb, 0x75, 0xd2, 0xc6, 0x8f, 0xfc, 0x58, 0xb5, 0x4d, 0xb6, 0x1b,
-	0x4f, 0x5b, 0x35, 0x7f, 0x18, 0x5a, 0xda, 0x1b, 0x1e, 0x4b, 0x9b, 0xad, 0x6c, 0x6c, 0x54, 0xde,
-	0x94, 0xbd, 0x70, 0x58, 0xf6, 0xe2, 0x96, 0xec, 0x39, 0xfe, 0x47, 0x1b, 0xfc, 0xfd, 0xd8, 0x2d,
-	0x75, 0xd8, 0xd4, 0x5f, 0xe2, 0x7a, 0x29, 0xdc, 0x80, 0xc4, 0x36, 0x5f, 0x41, 0x6e, 0x06, 0x7f,
-	0x62, 0xd9, 0xfe, 0x55, 0x86, 0xd3, 0x68, 0xfc, 0x72, 0x84, 0x62, 0xc5, 0x6c, 0xf4, 0x17, 0xa2,
-	0xac, 0x37, 0x98, 0x5c, 0x64, 0xe6, 0x91, 0xdd, 0xe9, 0xc6, 0xb3, 0x34, 0xb0, 0xb9, 0x95, 0x7d,
-	0x38, 0xeb, 0xce, 0xd1, 0xbe, 0xcf, 0xbe, 0x31, 0x92, 0x19, 0x6c, 0x5c, 0xba, 0xf1, 0x32, 0xf5,
-	0xed, 0x7c, 0x8f, 0x7d, 0xa8, 0x75, 0x05, 0x52, 0x85, 0x11, 0x3f, 0xf2, 0x3c, 0x4d, 0xd8, 0x5a,
-	0x9a, 0x7d, 0x8c, 0xa2, 0x7e, 0x6e, 0xf8, 0x66, 0x3f, 0x89, 0x90, 0xfb, 0xb2, 0x3f, 0x42, 0x6d,
-	0xbc, 0x9c, 0x66, 0x68, 0xec, 0x58, 0x92, 0x7d, 0xf9, 0x9f, 0xe0, 0x44, 0xe7, 0x07, 0x8d, 0x0f,
-	0x02, 0x3d, 0x76, 0x0d, 0x63, 0x0f, 0xc0, 0x67, 0x20, 0xdd, 0x39, 0xe5, 0x33, 0xcc, 0xad, 0xce,
-	0xc5, 0x56, 0x82, 0x7e, 0x0d, 0x87, 0x90, 0x5c, 0x7e, 0xc7, 0xc4, 0x22, 0x84, 0xd2, 0xa8, 0xff,
-	0x84, 0xd4, 0x81, 0xaa, 0xce, 0x0e, 0x77, 0xf5, 0x91, 0x64, 0x42, 0x8c, 0x47, 0x90, 0xb9, 0x82,
-	0xff, 0x02, 0x35, 0xbf, 0x7a, 0x39, 0x6d, 0xe2, 0xef, 0xfd, 0x01, 0x6d, 0x7b, 0xe8, 0xe0, 0x4e,
-	0x6d, 0xff, 0x22, 0x7f, 0x52, 0x0e, 0xff, 0x33, 0x6f, 0x7e, 0x07, 0x00, 0x00, 0xff, 0xff, 0x1c,
-	0xa4, 0x8b, 0xe9, 0x79, 0x06, 0x00, 0x00,
+	// 576 bytes of a gzipped FileDescriptorProto
+	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x09, 0x6e, 0x88, 0x02, 0xff, 0xa4, 0x55, 0x5f, 0x6f, 0x12, 0x41,
+	0x10, 0xcf, 0x95, 0x82, 0xd7, 0x41, 0xaa, 0xdd, 0x34, 0x16, 0xd1, 0x18, 0x72, 0x0f, 0xda, 0x27,
+	0x1e, 0xd0, 0x87, 0x46, 0x8d, 0x86, 0x40, 0x83, 0x8d, 0x09, 0x92, 0x23, 0xf4, 0x7d, 0x39, 0xa6,
+	0xb0, 0xe9, 0xb1, 0x87, 0xbb, 0x7b, 0x6d, 0xf8, 0x00, 0x7e, 0x18, 0xe3, 0xab, 0x1f, 0xd0, 0xbb,
+	0xdb, 0xfb, 0x0b, 0x08, 0xc6, 0xbe, 0xed, 0xcc, 0xec, 0xfc, 0xe6, 0x37, 0xf3, 0x9b, 0xbd, 0x83,
+	0x63, 0xea, 0x38, 0x9e, 0xcf, 0x95, 0x6c, 0x2d, 0x85, 0xa7, 0x3c, 0x62, 0x26, 0xb6, 0x05, 0x60,
+	0x0e, 0x98, 0x3b, 0xa4, 0x82, 0x2e, 0xac, 0x77, 0x70, 0xda, 0xb9, 0xa3, 0xcc, 0xa5, 0x13, 0xe6,
+	0x32, 0xb5, 0xb2, 0x51, 0x2e, 0x3d, 0x2e, 0x91, 0xbc, 0x84, 0xa3, 0xd8, 0xef, 0x62, 0xdd, 0x68,
+	0x1a, 0xe7, 0xa6, 0x9d, 0x39, 0xac, 0x37, 0x50, 0xeb, 0x23, 0x47, 0xc1, 0x9c, 0x91, 0x12, 0x8c,
+	0xcf, 0xc8, 0x33, 0xa8, 0xe8, 0x53, 0x74, 0xf7, 0xc8, 0x8e, 0x2d, 0x6b, 0x0c, 0xb5, 0x11, 0x9b,
+	0xf1, 0xf1, 0xd2, 0xc6, 0xef, 0x3e, 0x4a, 0x45, 0x2c, 0x78, 0x7c, 0xb9, 0x08, 0x60, 0x3a, 0xd3,
+	0xa9, 0x40, 0x29, 0xe3, 0xeb, 0x05, 0x1f, 0x69, 0x42, 0x75, 0x38, 0xf7, 0x38, 0x0e, 0xfc, 0xc5,
+	0x04, 0x45, 0xfd, 0x20, 0xba, 0x92, 0x77, 0x59, 0x5f, 0xe1, 0x49, 0x5c, 0x3f, 0x25, 0x1c, 0x31,
+	0xa0, 0xca, 0xd7, 0x90, 0x65, 0x3b, 0xb6, 0x42, 0xb0, 0x1e, 0x4a, 0x47, 0xb0, 0xa5, 0x62, 0x1e,
+	0x4f, 0xc0, 0x72, 0x2e, 0xeb, 0x87, 0x01, 0xe6, 0x08, 0x95, 0x0a, 0xf8, 0x4a, 0xf2, 0x31, 0x3b,
+	0x07, 0x40, 0xa5, 0xf3, 0x6a, 0xbb, 0xd9, 0x4a, 0x07, 0x99, 0x44, 0xd2, 0xc3, 0x25, 0x57, 0x62,
+	0x65, 0xa7, 0x19, 0x8d, 0x0f, 0x41, 0xbb, 0xf9, 0x10, 0x79, 0x0a, 0xa5, 0x5b, 0x5c, 0xc5, 0x5d,
+	0x86, 0x47, 0x72, 0x0a, 0xe5, 0x3b, 0xea, 0xfa, 0x18, 0x33, 0xd1, 0xc6, 0xfb, 0x83, 0x0b, 0xc3,
+	0xfa, 0x65, 0xc0, 0xc9, 0x00, 0xef, 0x3b, 0xba, 0x5a, 0x0f, 0x55, 0x30, 0x12, 0x49, 0x5a, 0x40,
+	0xae, 0x83, 0x46, 0x6f, 0x98, 0x43, 0x43, 0xb6, 0x85, 0x29, 0x6f, 0x89, 0x90, 0x06, 0x98, 0x63,
+	0x89, 0x82, 0xd3, 0x45, 0x52, 0x22, 0xb5, 0xc3, 0xd8, 0x90, 0x4a, 0x79, 0xef, 0x89, 0x69, 0xbd,
+	0xa4, 0x63, 0x89, 0x1d, 0xd4, 0xc9, 0x1a, 0x3f, 0x0c, 0x62, 0xd5, 0x36, 0xd9, 0x6c, 0x3c, 0x6b,
+	0xd5, 0xfa, 0x69, 0x68, 0x69, 0xaf, 0x78, 0x22, 0x6d, 0xbe, 0xb2, 0xb1, 0x56, 0x79, 0x5d, 0xf6,
+	0x83, 0xfd, 0xb2, 0x97, 0x36, 0x64, 0x2f, 0xf0, 0x3f, 0x5c, 0xe3, 0x1f, 0xc4, 0xae, 0xa9, 0xcb,
+	0xa6, 0xc1, 0x12, 0xd7, 0xcb, 0xd1, 0x06, 0xa4, 0xb6, 0xf5, 0x1a, 0x0a, 0x33, 0xf8, 0x1b, 0xcb,
+	0xf6, 0xef, 0x0a, 0x98, 0xf1, 0xf8, 0xc3, 0x4d, 0xa8, 0xe8, 0xd5, 0x25, 0x67, 0xb9, 0x41, 0xe4,
+	0x97, 0xb9, 0xf1, 0x3c, 0x0b, 0xac, 0xaf, 0x63, 0x1f, 0x4e, 0xba, 0x73, 0x74, 0x6e, 0xf3, 0x8f,
+	0x8b, 0xe4, 0x26, 0x9a, 0xd4, 0x6c, 0xbc, 0xca, 0x7c, 0x5b, 0x1f, 0x62, 0x1f, 0x6a, 0x5d, 0x81,
+	0x54, 0x61, 0x4c, 0x8c, 0xbc, 0xc8, 0x12, 0x36, 0xb6, 0x65, 0x17, 0xa3, 0xb8, 0x9f, 0x2b, 0xbe,
+	0xde, 0x4f, 0xaa, 0xe0, 0xae, 0xec, 0x4f, 0x50, 0x1b, 0x2f, 0xa7, 0x39, 0x1a, 0x5b, 0xb6, 0x63,
+	0x57, 0xfe, 0x67, 0x38, 0xd6, 0xf9, 0x61, 0xe3, 0x83, 0x50, 0x88, 0x6d, 0xc3, 0xd8, 0x01, 0xf0,
+	0x05, 0x48, 0x77, 0x4e, 0xf9, 0x0c, 0x0b, 0x3b, 0x73, 0xb6, 0x91, 0xa0, 0x9f, 0xc1, 0x3e, 0x24,
+	0x8f, 0xdf, 0x30, 0xb1, 0x88, 0xa0, 0x34, 0xea, 0x7f, 0x21, 0x75, 0xa0, 0xaa, 0xb3, 0xa3, 0x25,
+	0x7d, 0x20, 0x99, 0x08, 0xe3, 0x01, 0x64, 0x2e, 0xe0, 0x51, 0xa8, 0xe6, 0x37, 0xbf, 0xa0, 0x4d,
+	0xf2, 0xa1, 0xdf, 0xa3, 0x6d, 0x0f, 0x5d, 0xdc, 0xaa, 0xed, 0x3f, 0xe4, 0x4f, 0x2a, 0xd1, 0x0f,
+	0xe6, 0xed, 0x9f, 0x00, 0x00, 0x00, 0xff, 0xff, 0x46, 0x9b, 0x11, 0xa7, 0x72, 0x06, 0x00, 0x00,
 }
