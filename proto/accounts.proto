@@ -1,0 +1,74 @@
+syntax = "proto3";
+
+package accounts;
+
+service AccountsService {
+	rpc SignUp(SignUpRequest) returns (GenericResponse);
+
+	rpc CheckAvailability(Username) returns (AvailabilityResponse);
+	rpc CreateAccount(NewAccountDetails) returns (GenericResponse);
+
+	rpc SignIn(SignInRequest) returns (GenericResponse);
+
+	// All rpcs below from here are protected
+	// and accessible only after Authentication
+
+	rpc UpdateAccount(Settings) returns (GenericResponse);
+	rpc UpdateUserName(Username) returns (GenericResponse);
+
+	rpc ChangeEmailAddress(GenericString) returns (GenericResponse);
+	rpc ConfirmEmailChange(GenericString) returns (GenericResponse);
+	rpc ChangePhone(GenericString) returns (GenericResponse);
+	rpc ConfirmPhoneChange(GenericString) returns (GenericResponse);
+
+	rpc SignOut(NilParam) returns (GenericResponse);
+
+	rpc DeleteAccount(NilParam) returns (GenericResponse);
+}
+
+message NilParam{}
+
+message AvailabilityResponse {
+	bool Available = 1;
+}
+
+message GenericString {
+	string String = 1;
+}
+
+message SignUpRequest {
+	// At least one field should be present
+	string EmailAddress = 1;
+	string PhoneNumber = 2;
+}
+
+message GenericResponse {
+	int32 Status = 1;
+	string Description = 2;
+}
+
+message Settings {
+	map<string, string> Settings = 1;
+}
+
+message NewAccountDetails {
+	// VerificationString can tell which of email or phone is confirmed
+	string VerificationString = 1;
+	string Username = 2;
+	string Password = 3;
+	Settings Settings = 4;
+}
+
+message SignInRequest {
+	string Username = 1;
+	string EmailAddress = 2;
+	string PhoneNumber = 3;
+	string Password = 4;
+
+	// Session validity in hours
+	int32 Validity = 5;
+}
+
+message Username {
+	string Username = 1;
+}
