@@ -1,12 +1,11 @@
-package main
+package accounts
 
 import (
 	"log"
-	"net"
 
 	"golang.org/x/net/context"
 
-	pb "github.com/psankar/accounts-management/libs"
+	pb "github.com/psankar/accounts-management/proto"
 	"google.golang.org/grpc"
 	"google.golang.org/grpc/codes"
 )
@@ -15,7 +14,8 @@ type AccountsServer struct {
 	// TODO: Yet to implement
 }
 
-func (s *AccountsServer) SignUp(context.Context, *pb.SignUpRequest) (*pb.GenericResponse, error) {
+func (s *AccountsServer) SignUp(c context.Context, req *pb.SignUpRequest) (*pb.GenericResponse, error) {
+	log.Println(req.EmailAddress, req.PhoneNumber, req)
 	return nil, grpc.Errorf(codes.Unimplemented, "")
 }
 func (s *AccountsServer) CheckAvailability(context.Context, *pb.Username) (*pb.AvailabilityResponse, error) {
@@ -50,15 +50,4 @@ func (s *AccountsServer) SignOut(context.Context, *pb.NilParam) (*pb.GenericResp
 }
 func (s *AccountsServer) DeleteAccount(context.Context, *pb.NilParam) (*pb.GenericResponse, error) {
 	return nil, grpc.Errorf(codes.Unimplemented, "")
-}
-
-func main() {
-	log.Println("Starting accounts server")
-	lis, err := net.Listen("tcp", ":10000")
-	if err != nil {
-		log.Fatalf("failed to listen: %v", err)
-	}
-	grpcServer := grpc.NewServer()
-	pb.RegisterAccountsServer(grpcServer, &AccountsServer{})
-	grpcServer.Serve(lis)
 }
