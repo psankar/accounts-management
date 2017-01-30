@@ -1,2 +1,2 @@
 all:
-	protoc --go_out=plugins=grpc:../libs/ *.proto
+	protoc --go_out=plugins=grpc:. *.proto
